@@ -1,0 +1,197 @@
+.admin-root {
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.admin-root h1, .admin-root h2, .admin-root h3 {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.admin-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background: #1e293b;
+  color: #cbd5e1;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-mobile-header {
+  display: none;
+}
+
+/* Tablet ve altı: sidebar slide-in menü, hamburger göster */
+@media (max-width: 1024px) {
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: #1e293b;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+  }
+
+  .admin-sidebar {
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    width: 280px;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.22s cubic-bezier(0.33, 1, 0.68, 1);
+    overflow-y: auto;
+  }
+
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .admin-main {
+    padding: 16px;
+  }
+
+  /* Tablolar mobilde scroll edilebilir */
+  .admin-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .admin-card {
+    padding: 14px;
+  }
+}
+
+.admin-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 45;
+}
+
+.admin-sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  color: #cbd5e1;
+  font-size: 14px;
+  transition: all 0.15s;
+}
+
+.admin-sidebar a:hover {
+  background: #334155;
+  color: #fbbf24;
+}
+
+.admin-sidebar a.active {
+  background: #334155;
+  color: #fbbf24;
+  border-left: 3px solid #f59e0b;
+}
+
+.admin-main {
+  padding: 24px 32px;
+  overflow-x: auto;
+}
+
+.admin-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  padding: 20px;
+}
+
+.admin-table {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.admin-table th, .admin-table td {
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-table th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tr:hover { background: #f9fafb; }
+
+.admin-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+}
+
+.admin-btn-primary { background: #f59e0b; color: white; }
+.admin-btn-primary:hover { background: #d97706; }
+
+.admin-btn-danger { background: #ef4444; color: white; }
+.admin-btn-danger:hover { background: #dc2626; }
+
+.admin-btn-success { background: #10b981; color: white; }
+.admin-btn-success:hover { background: #059669; }
+
+.admin-btn-ghost { background: #f3f4f6; color: #374151; }
+.admin-btn-ghost:hover { background: #e5e7eb; }
+
+.admin-input, .admin-select, .admin-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.15s;
+}
+
+.admin-input:focus, .admin-select:focus, .admin-textarea:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.admin-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.admin-badge-amber { background: #fef3c7; color: #92400e; }
+.admin-badge-green { background: #d1fae5; color: #065f46; }
+.admin-badge-red { background: #fee2e2; color: #991b1b; }
+.admin-badge-gray { background: #e5e7eb; color: #374151; }
+.admin-badge-blue { background: #dbeafe; color: #1e40af; }
