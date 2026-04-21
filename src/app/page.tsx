@@ -227,7 +227,8 @@ export default async function HomePage() {
     .eq('id', 1)
     .single();
 
-  const hero = settings || {};
+  // TypeScript hatasını önlemek için 'as any' ekledik
+  const hero = (settings as any) || {};
   const heroAktif = hero.hero_aktif ?? true;
 
   return (
