@@ -49,9 +49,10 @@ export default function HeaderClient({ settings }: { settings: any }) {
                 <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center text-white font-bold text-lg shrink-0">
                   {yazi1.charAt(0)}
                 </div>
-                <div className="hidden xs:block sm:block">
-                  <div className="font-heading font-extrabold text-primary-600 leading-tight text-sm">{yazi1}</div>
-                  <div className="text-[10px] text-primary-500 font-semibold tracking-wider leading-tight">{yazi2}</div>
+                {/* BURASI DÜZELDİ: 'hidden' sınıflarını kaldırdık */}
+                <div className="block">
+                  <div className="font-heading font-extrabold text-primary-600 leading-tight text-sm whitespace-nowrap">{yazi1}</div>
+                  <div className="text-[10px] text-primary-500 font-semibold tracking-wider leading-tight whitespace-nowrap">{yazi2}</div>
                 </div>
               </div>
             )}
