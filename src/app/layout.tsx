@@ -5,11 +5,10 @@ import { createAdminClient } from '@/lib/supabase/admin';
 export async function generateMetadata(): Promise<Metadata> {
   const supabase = createAdminClient();
   const { data: settings } = await supabase.from('site_settings').select('*').eq('id', 1).single();
+
   return {
-    title: {
-      default: settings?.seo_title || 'Nakliyat Firma Rehberi',
-      // template kaldırıldı - her sayfa kendi başlığını kullanacak, site adı otomatik eklenmeyecek
-    },
+    // Obje yerine direkt string vererek hatayı çözüyoruz
+    title: settings?.seo_title || 'Nakliyat Firma Rehberi',
     description: settings?.seo_description || 'Türkiye geneli onaylı nakliyat firmaları',
     keywords: settings?.seo_keywords || 'nakliyat, evden eve, yük, boş araç',
     icons: settings?.favicon_url ? { icon: settings.favicon_url } : undefined,
